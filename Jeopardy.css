@@ -1,0 +1,26 @@
+th, td {
+    border: 1px solid;
+    border-collapse: separate;
+    border-spacing: 0px;
+    padding: 20px;
+    text-align: center;
+  }
+.head {
+  height: 10%;
+  border: 0px solid;
+}
+.correct {
+  background-color: green;
+}
+.incorrect {
+  background-color: red;
+}
+table {
+  position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	height: 100%;
+	width: 100%;
+}
