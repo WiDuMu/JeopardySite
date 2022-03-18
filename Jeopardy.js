@@ -41,7 +41,7 @@ async function getCategoryQuestions() {
                 category[i] = question;
                 /*Category[0] is the category info, 1-6 is the questions*/
             }
-            categories.push(category)//Adds the selected question to the category that is returned.
+            categories.push(category);//Adds the selected question to the category that is returned.
         }
     }
     return categories
