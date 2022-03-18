@@ -7,9 +7,39 @@
   </head>
   <body>
     <table id="board">
-      <th id ="heading" class="head" colspan="5">Jeopardy!</th>
+      <thead id ="heading"><th class="head" colspan="5">Jeopardy!</th></thead>
+      <tbody id="startScreen">
+      <tr><td>Rules:
+        <ul>
+          <li><b>All</b> answers must start with Who, What, When, Where, Why or how. You may then use is, was, are, or were as a connecting word.</li>
+          <li>Score tracking or multiple players buzzing are currently not handled.</li>
+          <li>I don't control the API serving the questions. Please try not to overload the upstream API.</li>
+        </ul>
+        <input type="button" id="startButton" value="Start Game!">
+      </td></tr>
+      </tbody>
+      <tbody id="mainBoard" hidden>
+        <tr id="categories"></tr>
+        <tr id="100"></tr>
+        <tr id="200"></tr>
+        <tr id="300"></tr>
+        <tr id="400"></tr>
+        <tr id="500"></tr>
+      </tbody>
+      <tbody id="askQuestion" hidden>
+        <tr>
+          <td>
+            <p id="questionText"></p>
+            <p id="correctAnswer" hidden></p>
+            <p id="givenAnswer" hidden></p>
+            <input type="button" id="overrideWasRight" value="Override: I was right." hidden>
+            <input type="button" id="continueButton" value="Continue game" hidden>
+            <input type="text" id="answerInputField">
+            <input type="button" id="answerInputButton" value="Submit Answer">
+          </td>
+        </tr>
+      </tbody>
     </table>
-    </div>
     <header></header>
     <main></main>
     <footer></footer>

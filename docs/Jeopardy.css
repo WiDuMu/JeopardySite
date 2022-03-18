@@ -1,4 +1,4 @@
-th, td {
+tbody, th, td {
     padding: 20px;
     text-align: center;
     border: 1px solid;
@@ -15,7 +15,7 @@ th, td {
 }
 table {
   border-collapse: collapse;
-  border-spacing: 0px;
+  border-spacing: 1px;
   position: absolute;
 	top: 0;
 	bottom: 0;
