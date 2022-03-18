@@ -41,7 +41,7 @@ async function getCategoryQuestions() {
                 category[i] = question;
                 /*Category[0] is the category info, 1-6 is the questions*/
             }
-        categories.push(category)//Adds the selected question to the category that is returned.
+            categories.push(category);//Adds the selected question to the category that is returned.
         }
     }
     return categories
@@ -103,8 +103,8 @@ function isTrue(givenAnswer, correctAnswer) {
     }
     return isACorrectQuestion;
 }
-function askQuestion(box, board, tableData) {
-    const value = box.textContent;
+function askQuestion(box, board, tableData) { //This function changes the board to one with the just the question being asked, checks the answer, and then repaints the
+    const value = box.textContent; // The value of the question being asked.
     const category = box.id;
     const question = tableData[category][value / 100]
     const row = document.createElement('tr');
