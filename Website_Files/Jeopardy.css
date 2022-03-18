@@ -1,0 +1,26 @@
+th, td {
+    padding: 20px;
+    text-align: center;
+    border: 1px solid;
+  }
+.head {
+  height: 10%;
+  border: 0px solid;
+}
+.true {
+  background-color: green;
+}
+.false {
+  background-color: red;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0px;
+  position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	height: 100%;
+	width: 100%;
+}
