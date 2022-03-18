@@ -1,21 +1,21 @@
 th, td {
-    border: 1px solid;
-    border-collapse: separate;
-    border-spacing: 0px;
     padding: 20px;
     text-align: center;
+    border: 1px solid;
   }
 .head {
   height: 10%;
   border: 0px solid;
 }
-.correct {
+.true {
   background-color: green;
 }
-.incorrect {
+.false {
   background-color: red;
 }
 table {
+  border-collapse: collapse;
+  border-spacing: 0px;
   position: absolute;
 	top: 0;
 	bottom: 0;
