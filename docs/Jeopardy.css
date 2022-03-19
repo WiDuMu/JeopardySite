@@ -1,5 +1,5 @@
 main {
-  position: absolute;
+  position: absolute; /* Position-Width make the html fill the screen*/
 	top: 0;
 	bottom: 0;
 	left: 0;
@@ -8,12 +8,12 @@ main {
   margin: 0px;
   height: 100%;
 	width: 100%;
-  color: #e5e7eb;
-  background-color: #1e40af;
-  font-family: Roboto, Arial, Helvetica, sans-serif;
+  color: #e5e7eb; /* Global text color */
+  background-color: #1e40af; /* Global background color */
+  font-family: Roboto, Arial, Helvetica, sans-serif; /* Global font */
 }
 tbody, th, td {
-    padding: 15px;
+    padding: 10px;
     text-align: center;
     border: 1px solid;
 }
@@ -23,10 +23,10 @@ tbody, th, td {
   justify-content: center;
 }
 .head {
-  height: 25px;
+  height: 23px;
   color: #e5e7eb;
   border: 0px solid;
-  display: flex;
+  display: flex; /* Display-Justify make the top bar horizontal */
   flex-direction: row;
   align-items: center;
   justify-content: space-between; 
@@ -34,15 +34,15 @@ tbody, th, td {
   flex: 33%;
   width: 100%;
 }
-.true {
+.true { /* A class used when an answer is correct */
   background-color: #2fce37;
 }
-.false {
+.false { /* A class used when an answer is incorrect */
   background-color: #e42828;
 }
 table {
   border-collapse: collapse;
   border-spacing: 1px;
-  height: calc(100% - 25px);
+  height: calc(100% - 23px); /* Makes the table use the rest of the space in the screen without scrolling */
 	width: 100%;
 }

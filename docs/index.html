@@ -6,29 +6,16 @@
     <title>Jeopardy</title>
   </head>
 <main>
-  <body>
+  <!-- This is the headerbar that shows the name, score, and progress. -->
   <div class="head">
     <p id="completion"><span id="questionsCompleted">0</span>/25</p>
     <p>Jeopardy!</p>
     <p id="earnings">Earnings: $<span id="money">0</span></p>
   </div>
-    <table id="board">
-      <thead hidden>
-        <tr id="headRow">
-        <th class="head" colspan="5">
-          <div id="completion">
-            <span id="questionsCompleted">0</span>/25
-          </div>
-          <div>
-            Jeopardy!
-          </div>
-          <div id="earnings">Earnings: $
-            <span id="money">0</span>
-          </div>
-        </th>
-      </tr>
-      </thead>
-      <tbody id="startScreen">
+  <!-- The entire game takes place inside this table. -->
+  <table id="board">
+    <!-- The start screen table, hidden after startup -->
+    <tbody id="startScreen">
       <tr id="rules"><td>Rules:
         <ul>
           <li><b>All</b> answers must start with Who, What, When, Where, Why or how. You may then use is, was, are, or were as a connecting word.</li>
@@ -37,39 +24,40 @@
         </ul>
         <input type="button" id="startButton" value="Start Game!">
       </td></tr>
-      </tbody>
-      <tbody id="mainBoard" hidden>
-        <tr id="categories"></tr>
-        <tr id="100"></tr>
-        <tr id="200"></tr>
-        <tr id="300"></tr>
-        <tr id="400"></tr>
+    </tbody>
+    <!-- This shows all the options for the questions -->
+    <tbody id="mainBoard" hidden>
+      <tr id="categories"></tr>
+      <tr id="100"></tr>
+      <tr id="200"></tr>
+      <tr id="300"></tr>
+      <tr id="400"></tr>
         <tr id="500"></tr>
-      </tbody>
-      <tbody id="askQuestion" hidden>
-        <tr>
-          <td>
-            <p id="questionText"></p>
-            <p id="correctAnswer" hidden></p>
-            <p id="givenAnswer" hidden></p>
-            <input type="button" id="overrideWasRight" value="Override: I was right." hidden>
-            <input type="button" id="continueButton" value="Continue game" hidden>
-            <input type="text" id="answerInputField">
-            <input type="button" id="answerInputButton" value="Submit Answer">
-          </td>
-        </tr>
-      </tbody>
-      <tbody id="endScreen" hidden>
-        <tr>
-          <td>
-            <p>You have reached the end of the show! You earned $<span id="finalEarnings"></span>.</p>
-            <p>Thank you for playing!</p>
-          </td>
-        </tr>
-      </tbody>
-    </table>
+    </tbody>
+    <!-- When you select a question you go here. -->
+    <tbody id="askQuestion" hidden>
+      <tr>
+        <td>
+          <p id="questionText"></p>
+          <p id="correctAnswer" hidden></p>
+          <p id="givenAnswer" hidden></p>
+          <input type="button" id="overrideWasRight" value="Override: I was right." hidden>
+          <input type="button" id="continueButton" value="Continue game" hidden>
+          <input type="text" id="answerInputField">
+          <input type="button" id="answerInputButton" value="Submit Answer">
+        </td>
+      </tr>
+    </tbody>
+    <!-- Shows your score -->
+    <tbody id="endScreen" hidden>
+      <tr>
+        <td>
+          <p>You have reached the end of the show! You earned $<span id="finalEarnings"></span>.</p>
+          <p>Thank you for playing!</p>
+        </td>
+      </tr>
+    </tbody>
+  </table>
 </main>
-    <footer></footer>
-  </body>
-  <script src="Jeopardy.js"></script>
+<script src="Jeopardy.js"></script>
 </html>
