@@ -101,9 +101,9 @@ function askQuestion(box, tableData) { //This function changes the board to one 
     const value = box.textContent; // The value of the question being asked.
     const category = box.id; // The id of a box matches up with the position of it's category in tableData[]
     const question = tableData[category][value / 100]; // Uses the value of the box clicked on to derive the question being asked.
-    questionText.textContent = 'Question:\n'+question['question']; // Puts the question on screen.
-    mainBoard.hidden = true; // Hides the main board
-    questionBody.hidden = false; // Shows the question
+    questionText.textContent = 'Question:\n'+question['question'];
+    mainBoard.hidden = true;
+    questionBody.hidden = false;
     inputButton.onclick = () => { //Once the answer has been submitted.
         inputButton.hidden = inputField.hidden = true; // Hides the inputs
         const givenAnswer = inputField.value;
@@ -123,7 +123,7 @@ function askQuestion(box, tableData) { //This function changes the board to one 
         continueButton.onclick = () => {
             questionBody.hidden = showCorrectAnswer.hidden = showGivenAnswer.hidden = continueButton.hidden = overrideButton.hidden = true;
             mainBoard.hidden = inputButton.hidden = inputField.hidden = false;
-            inputField.value = ''; // Reseting this for later.
+            inputField.value = ''; // Resetting this for later.
             questionBody.removeAttribute('class');
         }
     }
