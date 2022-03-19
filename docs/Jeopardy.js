@@ -98,30 +98,47 @@ function askQuestion(box, tableData) { //This function changes the board to one 
     const showCorrectAnswer = document.getElementById('correctAnswer');
     const showGivenAnswer = document.getElementById('givenAnswer');
     const overrideButton = document.getElementById('overrideWasRight'); // Allows you to override the check if it didn't catch it.
+    const questionsComplete = document.getElementById('questionsCompleted');
+    const money = document.getElementById('money');
+    const rules = document.getElementById('rules');
+    const endScreen = document.getElementById('endScreen');
+    const finalEarnings = document.getElementById('finalEarnings');
     // Setting up variables used later
-    const value = box.textContent; // The value of the question being asked.
+    var value = box.textContent; // The value of the question being asked.
+    console.log(value);
     const category = box.id; // The id of a box matches up with the position of it's category in tableData[]
     const question = tableData[category][value / 100]; // Uses the value of the box clicked on to derive the question being asked.
-    questionText.textContent = 'Question:\n'+question['question'];
+    questionText.textContent = 'Question:\n'+question['question'].replace(/(<\/?i>)/, '');
+    box.textContent = question['question'].replace(/(<\/?i>)/, '');
     mainBoard.hidden = true;
     questionBody.hidden = false;
     inputButton.onclick = () => { //Once the answer has been submitted.
         inputButton.hidden = inputField.hidden = true; // Hides the inputs
         const givenAnswer = inputField.value;
-        const answerIsCorrect = checkAnswer(givenAnswer, question['answer']); // Checks the answer
+        var answerIsCorrect = checkAnswer(givenAnswer, question['answer']); // Checks the answer
         questionBody.classList = box.classList = answerIsCorrect;
         //The above colors the box on the main board, and the Question screen red or green based on whether answer was correct.
-        showCorrectAnswer.textContent = 'Correct answer:\n'+question['answer']; // Puts correct answer on the screen.
+        showCorrectAnswer.textContent = 'Correct answer:\n'+question['answer'].replace(/(<\/?i>)/, ''); // Puts correct answer on the screen.
         showCorrectAnswer.hidden = false;
         if (!answerIsCorrect) {
             showGivenAnswer.textContent = 'Your answer: '+givenAnswer; // Only show your answer if it didn't match correct.
             overrideButton.hidden = showGivenAnswer.hidden = false;
-            overrideButton.onclick = () => {questionBody.classList = box.classList = overrideButton.hidden = true;}
+            overrideButton.onclick = () => {questionBody.classList = box.classList = overrideButton.hidden = answerIsCorrect = true;}
         }
         const continueButton = document.getElementById('continueButton');
         continueButton.hidden = false;
         continueButton.onclick = () => {
+            value = parseInt(value);
+            if (answerIsCorrect == false) {value = 0 - value}
+            money.textContent = parseInt(money.textContent) + value;
+            questionsComplete.textContent = parseInt(questionsComplete.textContent) + 1;
             questionBody.hidden = showCorrectAnswer.hidden = showGivenAnswer.hidden = continueButton.hidden = overrideButton.hidden = true;
+            if (questionsComplete.textContent == 25) {
+                console.log(questionsComplete.textContent);
+                finalEarnings.textContent = money.textContent;
+                endScreen.hidden = false;
+                return
+            }
             mainBoard.hidden = inputButton.hidden = inputField.hidden = false;
             inputField.value = ''; // Resetting this for later.
             questionBody.removeAttribute('class');

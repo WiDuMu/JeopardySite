@@ -5,14 +5,34 @@
     <link rel="stylesheet" type="text/css" href="Jeopardy.css">
     <title>Jeopardy</title>
   </head>
+<main>
   <body>
+  <div class="head">
+    <p id="completion"><span id="questionsCompleted">0</span>/25</p>
+    <p>Jeopardy!</p>
+    <p id="earnings">Earnings: $<span id="money">0</span></p>
+  </div>
     <table id="board">
-      <thead id ="heading"><th class="head" colspan="5">Jeopardy!</th></thead>
+      <thead hidden>
+        <tr id="headRow">
+        <th class="head" colspan="5">
+          <div id="completion">
+            <span id="questionsCompleted">0</span>/25
+          </div>
+          <div>
+            Jeopardy!
+          </div>
+          <div id="earnings">Earnings: $
+            <span id="money">0</span>
+          </div>
+        </th>
+      </tr>
+      </thead>
       <tbody id="startScreen">
-      <tr><td>Rules:
+      <tr id="rules"><td>Rules:
         <ul>
           <li><b>All</b> answers must start with Who, What, When, Where, Why or how. You may then use is, was, are, or were as a connecting word.</li>
-          <li>Score tracking or multiple players buzzing are currently not handled.</li>
+          <li>Multiple players buzzing, double jeopardy, and final jeopardy are currently not handled.</li>
           <li>I don't control the API serving the questions. Please try not to overload the upstream API.</li>
         </ul>
         <input type="button" id="startButton" value="Start Game!">
@@ -39,9 +59,16 @@
           </td>
         </tr>
       </tbody>
+      <tbody id="endScreen" hidden>
+        <tr>
+          <td>
+            <p>You have reached the end of the show! You earned $<span id="finalEarnings"></span>.</p>
+            <p>Thank you for playing!</p>
+          </td>
+        </tr>
+      </tbody>
     </table>
-    <header></header>
-    <main></main>
+</main>
     <footer></footer>
   </body>
   <script src="Jeopardy.js"></script>
