@@ -121,7 +121,7 @@ function askQuestion(box, tableData) { //This function changes the board to one 
         const continueButton = document.getElementById('continueButton');
         continueButton.hidden = false;
         continueButton.onclick = () => {
-            questionBody.hidden = showCorrectAnswer.hidden = showGivenAnswer.hidden = continueButton.hidden = true;
+            questionBody.hidden = showCorrectAnswer.hidden = showGivenAnswer.hidden = continueButton.hidden = overrideButton.hidden = true;
             mainBoard.hidden = inputButton.hidden = inputField.hidden = false;
             inputField.value = ''; // Reseting this for later.
             questionBody.removeAttribute('class');
