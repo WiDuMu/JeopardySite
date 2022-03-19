@@ -97,6 +97,7 @@ function askQuestion(box, tableData) { //This function changes the board to one 
     const inputButton = document.getElementById('answerInputButton');
     const showCorrectAnswer = document.getElementById('correctAnswer');
     const showGivenAnswer = document.getElementById('givenAnswer');
+    const overrideButton = document.getElementById('overrideWasRight'); // Allows you to override the check if it didn't catch it.
     // Setting up variables used later
     const value = box.textContent; // The value of the question being asked.
     const category = box.id; // The id of a box matches up with the position of it's category in tableData[]
@@ -114,7 +115,6 @@ function askQuestion(box, tableData) { //This function changes the board to one 
         showCorrectAnswer.hidden = false;
         if (!answerIsCorrect) {
             showGivenAnswer.textContent = 'Your answer: '+givenAnswer; // Only show your answer if it didn't match correct.
-            const overrideButton = document.getElementById('overrideWasRight'); // Allows you to override the check if it didn't catch it.
             overrideButton.hidden = showGivenAnswer.hidden = false;
             overrideButton.onclick = () => {questionBody.classList = box.classList = overrideButton.hidden = true;}
         }
