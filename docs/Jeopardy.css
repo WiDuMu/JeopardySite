@@ -10,6 +10,7 @@ main {
 	width: 100%;
   color: #e5e7eb;
   background-color: #1e40af;
+  font-family: Roboto, Arial, Helvetica, sans-serif;
 }
 tbody, th, td {
     padding: 15px;
@@ -40,7 +41,6 @@ tbody, th, td {
   background-color: #e42828;
 }
 table {
-  font-family: Roboto, Arial, Helvetica, sans-serif;
   border-collapse: collapse;
   border-spacing: 1px;
   height: calc(100% - 25px);
