@@ -58,23 +58,12 @@ function fillBoard(board,tableData) { //This function fills the table with the d
         const row = document.getElementById(`${i * 100}`)
         for (const category in tableData) {
             const questionBox = document.createElement('td'); // New box in row
-            if (tableData[category][i]['answeredCorrectly'] !== undefined) { // Checks what if this question was asked earlier.
-                questionBox.classList = tableData[category][i]['answeredCorrectly']; // Sets class for the purposes of CSS.
-                questionBox.textContent = tableData[category][i]['question'];
-                // If the question was answered, this puts the question in the box rather than the value.
-            }
-            else {
-                questionBox.textContent = row.id; // Sets the contents of the box to the questions value.
-                questionBox.id = category; //Stores the category that the question comes from for later
-                questionBox.onclick = () => {askQuestion(questionBox, tableData);} // I have know idea why I need to put my function in a function.
-            }
+            questionBox.textContent = row.id; // Sets the contents of the box to the questions value.
+            questionBox.id = category; //Stores the category that the question comes from for later
+            questionBox.onclick = () => {askQuestion(questionBox, tableData);} // I have know idea why I need to put my function in a function.
             row.appendChild(questionBox);
         }
     }
-}
-function clearBoard(board) { // Clears the board with the execption of the Jeopardy! heading, used by other functions.
-    const heading = board.firstElementChild;
-    board.replaceChildren(heading); // Removes everything but the heading
 }
 function massageAnswer(answer) {
     /*There are unicode diacritics, punctuation marks, captialization, and italiciation in the jeapardy answers.
@@ -97,7 +86,7 @@ function checkAnswer(givenAnswer, correctAnswer) { //Checks if the answer is cor
     if (givenAnswerString == correctAnswerString) {return true;} // Checks whether the answer is correct
     else {return false;}
 }
-async function askQuestion(box, tableData) { //This function changes the board to one with the just the question being asked, checks the answer, and then repaints the
+function askQuestion(box, tableData) { //This function changes the board to one with the just the question being asked, checks the answer, and then repaints the
     // Setting things that need to be done before we go back to the main board.
     box.onclick = () => {}
     // Getting elements on the page that we need for later.
@@ -111,7 +100,7 @@ async function askQuestion(box, tableData) { //This function changes the board t
     // Setting up variables used later
     const value = box.textContent; // The value of the question being asked.
     const category = box.id; // The id of a box matches up with the position of it's category in tableData[]
-    const question = tableData[await category][await value / 100]; // Uses the value of the box clicked on to derive the question being asked.
+    const question = tableData[category][value / 100]; // Uses the value of the box clicked on to derive the question being asked.
     questionText.textContent = 'Question:\n'+question['question']; // Puts the question on screen.
     mainBoard.hidden = true; // Hides the main board
     questionBody.hidden = false; // Shows the question
